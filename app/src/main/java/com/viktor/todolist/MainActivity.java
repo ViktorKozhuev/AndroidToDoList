@@ -49,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mainViewModel.getShouldMakeToast().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean shouldToast) {
+                if (shouldToast) {
+                    Toast.makeText(MainActivity.this, "Запись удалена", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(
                 new ItemTouchHelper.SimpleCallback(
                         0,
@@ -82,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mainViewModel.refreshList();
+    }
 
     private void initViews() {
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
