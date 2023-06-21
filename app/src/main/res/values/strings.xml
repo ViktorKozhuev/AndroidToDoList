@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Todo List</string>
+    <string name="low_radio_text">Low</string>
+    <string name="high_radio_text">High</string>
+    <string name="medium_radio_text">Medium</string>
+    <string name="enter_note_hint">Enter note:</string>
+    <string name="button_save_text">SAVE</string>
+</resources>
